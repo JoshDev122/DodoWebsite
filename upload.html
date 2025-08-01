@@ -1,0 +1,69 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LSPDFR Helper - Upload</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <h1 class="logo">LSPDFR Helper</h1>
+      <nav class="top-nav">
+        <a href="tutorials.html">Tutorials</a>
+        <a href="mods.html">Mods</a>
+        <a href="community.html">Community</a>
+        <a href="upload.html">Upload</a>
+        <input type="search" placeholder="Search..." aria-label="Search" />
+      </nav>
+    </div>
+  </header>
+
+  <section class="banner">
+    <h2>Find your perfect LSPDFR mod</h2>
+    <form class="search-form" role="search" aria-label="Search for mods, callouts, guides">
+      <input type="search" placeholder="Search for mods, callouts, guides..." />
+      <button type="submit">Search</button>
+    </form>
+  </section>
+
+  <nav class="secondary-nav container">
+    <a href="tutorials.html">Tutorials</a>
+    <a href="mods.html">Mods</a>
+    <a href="community.html">Community</a>
+    <a href="upload.html">Upload</a>
+  </nav>
+
+  <main class="container">
+    <h3>Upload Your Mod</h3>
+    <form action="upload.php" method="POST" enctype="multipart/form-data" class="upload-form">
+      <label for="mod-title">Mod Title:</label><br />
+      <input type="text" id="mod-title" name="mod-title" required /><br /><br />
+      
+      <label for="mod-description">Description:</label><br />
+      <textarea id="mod-description" name="mod-description" rows="4" required></textarea><br /><br />
+      
+      <label for="mod-file">Upload Mod File:</label><br />
+      <input type="file" id="mod-file" name="mod-file" required /><br /><br />
+      
+      <button type="submit">Submit</button>
+    </form>
+  </main>
+
+  <footer>
+    <div class="container footer-container">
+      <p>Contact us: support@lspdfrhelper.com</p>
+      <p>
+        Follow us on
+        <a href="#">Twitter</a> |
+        <a href="#">Facebook</a> |
+        <a href="#">Discord</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
