@@ -8,8 +8,47 @@
   <meta name="author" content="LSPDFR Helper - Mods" />
   <title>LSPDFR Helper - Home</title>
   <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    #countdown-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #1e3a8a;
+      color: white;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    #countdown-overlay h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    #countdown {
+      font-size: 3rem;
+    }
+
+    body > *:not(#countdown-overlay) {
+      display: none !important;
+    }
+  </style>
+
 </head>
 <body>
+
+  <div id="countdown-overlay">
+    <h1>LSPDFR Helper Launches In:</h1>
+    <div id="countdown">Loading...</div>
+  </div>
+
   <header>
     <div class="container header-container">
       <h1 class="logo">LSPDFR Helper</h1>
@@ -42,5 +81,36 @@
     <h3>Welcome to LSPDFR Helper</h3>
     <p>This is the home page. Explore tutorials, mods, community discussions, and upload your own content.</p>
   </main>
+
+  <script>
+    const launchDate = new Date("2025-08-15T12:00:00").getTime();
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = launchDate - now;
+
+      if (distance <= 0) {
+        clearInterval(timer);
+        document.getElementById("countdown").innerHTML = "We're Live!";
+        document.getElementById("countdown-overlay").style.display = "none";
+        const elements = document.body.children;
+        for (let el of elements) {
+          if (el.id !== "countdown-overlay") {
+            el.style.display = "";
+          }
+        }
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML =
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+  </script>
+
 </body>
 </html>
