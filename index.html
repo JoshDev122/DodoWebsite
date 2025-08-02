@@ -1,116 +1,82 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Welcome to the ultimate LSPDFR helper website — your one-stop destination for everything you need to improve your law enforcement roleplay in Grand Theft Auto V. Browse custom callouts, download essential plugins, follow step-by-step installation guides, and troubleshoot common issues. Whether you're just starting out or a seasoned officer, we've got the tools and tips to keep your patrols realistic and immersive.." />
-  <meta name="keywords" content="lspdfr, lspdfrplugins, lspdfrcallouts, etc." />
-  <meta name="author" content="LSPDFR Helper - Mods" />
-  <title>LSPDFR Helper - Home</title>
-  <link rel="stylesheet" href="styles.css" />
-
-  <style>
-    #countdown-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #1e3a8a;
-      color: white;
-      z-index: 9999;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-
-    #countdown-overlay h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    #countdown {
-      font-size: 3rem;
-    }
-
-    body > *:not(#countdown-overlay) {
-      display: none !important;
-    }
-  </style>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LSPDFR Ultimate Helper</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <div id="countdown-overlay">
-    <h1>LSPDFR Helper Launches In:</h1>
-    <div id="countdown">Loading...</div>
-  </div>
-
-  <header>
-    <div class="container header-container">
-      <h1 class="logo">LSPDFR Helper</h1>
-      <nav class="top-nav">
-        <a href="tutorials.html">Tutorials</a>
-        <a href="mods.html">Mods</a>
-        <a href="community.html">Community</a>
-        <a href="upload.html">Upload</a>
-        <input type="search" placeholder="Search..." aria-label="Search" />
-      </nav>
-    </div>
+  <!-- === Header === -->
+<header>
+    <div class="hamburger" id="hamburger">☰</div>
+    <h1>LSPDFR Ultimate Helper</h1>
+    <!-- === Navigation Bar === -->
+<nav>
+      <a href="index.html">Home</a>
+      <a href="guides.html">Guides</a>
+      <a href="community.html">Community</a>
+      <a href="changelog.html">Changelog</a>
+      
+      <button id="theme-toggle" class="theme-toggle">Toggle Theme</button>
+    </nav>
   </header>
 
-  <section class="banner">
-    <h2>Find your perfect LSPDFR mod</h2>
-    <form class="search-form" role="search" aria-label="Search for mods, callouts, guides">
-      <input type="search" placeholder="Search for mods, callouts, guides..." />
-      <button type="submit">Search</button>
-    </form>
-  </section>
+  <!-- === Start Main Content === -->
+<main>
+    <section class="hero">
+      <h2>🚓 Your Complete LSPDFR Toolkit</h2>
+      <p>Everything you need for immersive, stable, and realistic patrols — mods, callouts, tutorials, and more.</p>
+    </section>
 
-  <nav class="secondary-nav container">
-    <a href="tutorials.html">Tutorials</a>
-    <a href="mods.html">Mods</a>
-    <a href="community.html">Community</a>
-    <a href="upload.html">Upload</a>
-  </nav>
+    <section class="features" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px;">
+      <div class="download-card">
+        <h3>📥Plugins</h3>
+        <p>Verified and community-approved mods with full compatibility notes.</p>
+        <a href="Plugins.html" class="btn">Browse Mods</a>
+      </div>
 
-  <main class="container">
-    <h3>Welcome to LSPDFR Helper</h3>
-    <p>This is the home page. Explore tutorials, mods, community discussions, and upload your own content.</p>
-  </main>
+      <div class="download-card">
+        <h3>📚 Tutorials & Setup Guides</h3>
+        <p>Step-by-step instructions from first-time setup to advanced plugin chains.</p>
+        <a href="guides.html" class="btn">Start Learning</a>
+      </div>
 
-  <script>
-    const launchDate = new Date("2025-08-15T12:00:00").getTime();
+      <div class="download-card">
+        <h3>🚨 Callout Packs</h3>
+        <p>Download and install realistic or creative scenarios for LSPDFR patrols.</p>
+        <a href="callouts.html" class="btn">View Callouts</a>
+      </div>
 
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = launchDate - now;
+      <div class="download-card">
+        <h3>🚘 Vehicle Packs</h3>
+        <p>ELS and non-ELS vehicles with accurate lighting, liveries, and equipment.</p>
+        <a href="vehicles.html" class="btn">Explore Vehicles</a>
+      </div>
 
-      if (distance <= 0) {
-        clearInterval(timer);
-        document.getElementById("countdown").innerHTML = "We're Live!";
-        document.getElementById("countdown-overlay").style.display = "none";
-        const elements = document.body.children;
-        for (let el of elements) {
-          if (el.id !== "countdown-overlay") {
-            el.style.display = "";
-          }
-        }
-        return;
-      }
+      <div class="download-card">
+        <h3>💬 Community</h3>
+        <p>Join the community — post questions, share mods, and connect with devs.</p>
+        <a href="community.html" class="btn">Join the Discussion</a>
+      </div>
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      <div class="download-card">
+        <h3>📝 Site Changelog</h3>
+        <p>Stay up to date with what's new, improved, or added.</p>
+        <a href="changelog.html" class="btn">Read Updates</a>
+      </div>
+    </section>
 
-      document.getElementById("countdown").innerHTML =
-        `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }, 1000);
-  </script>
+    <div class="feedback-btn" title="Send feedback">💬 Feedback</div>
+  <!-- === End Main Content === -->
+</main>
 
+  <!-- === Footer === -->
+<footer>
+    <p>&copy; 2025 LSPDFR Ultimate Helper. Built by the community, for the community.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
