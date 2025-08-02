@@ -1,82 +1,73 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LSPDFR Ultimate Helper</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LSPDFR Helper</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    #searchInput {
+      margin: 10px auto;
+      display: block;
+      padding: 8px;
+      font-size: 16px;
+      width: 60%;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+  </style>
 </head>
 <body>
-  <!-- === Header === -->
-<header>
-    <div class="hamburger" id="hamburger">☰</div>
-    <h1>LSPDFR Ultimate Helper</h1>
-    <!-- === Navigation Bar === -->
-<nav>
-      <a href="index.html">Home</a>
-      <a href="guides.html">Guides</a>
-      <a href="community.html">Community</a>
-      <a href="changelog.html">Changelog</a>
-      
-      <button id="theme-toggle" class="theme-toggle">Toggle Theme</button>
+  <header>
+    <h1>LSPDFR Helper</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="setup.html">Setup Guide</a></li>
+        <li><a href="mods.html">Essential Mods</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+        <li><a href="issues.html">Common Issues</a></li>
+        <li><a href="fixes.html">Fixes</a></li>
+        <li><a href="tips.html">Gameplay Tips</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="changelog.html">Changelog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </nav>
+    <input type="text" id="searchInput" placeholder="Search this page..." />
   </header>
 
-  <!-- === Start Main Content === -->
-<main>
-    <section class="hero">
-      <h2>🚓 Your Complete LSPDFR Toolkit</h2>
-      <p>Everything you need for immersive, stable, and realistic patrols — mods, callouts, tutorials, and more.</p>
-    </section>
+  <main>
+    <h2>Welcome to LSPDFR Helper</h2>
+    <p>This site is your all-in-one assistant for getting the most out of LSPDFR. Click on a section in the menu to get started.</p>
+  </main>
 
-    <section class="features" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px;">
-      <div class="download-card">
-        <h3>📥Plugins</h3>
-        <p>Verified and community-approved mods with full compatibility notes.</p>
-        <a href="Plugins.html" class="btn">Browse Mods</a>
-      </div>
-
-      <div class="download-card">
-        <h3>📚 Tutorials & Setup Guides</h3>
-        <p>Step-by-step instructions from first-time setup to advanced plugin chains.</p>
-        <a href="guides.html" class="btn">Start Learning</a>
-      </div>
-
-      <div class="download-card">
-        <h3>🚨 Callout Packs</h3>
-        <p>Download and install realistic or creative scenarios for LSPDFR patrols.</p>
-        <a href="callouts.html" class="btn">View Callouts</a>
-      </div>
-
-      <div class="download-card">
-        <h3>🚘 Vehicle Packs</h3>
-        <p>ELS and non-ELS vehicles with accurate lighting, liveries, and equipment.</p>
-        <a href="vehicles.html" class="btn">Explore Vehicles</a>
-      </div>
-
-      <div class="download-card">
-        <h3>💬 Community</h3>
-        <p>Join the community — post questions, share mods, and connect with devs.</p>
-        <a href="community.html" class="btn">Join the Discussion</a>
-      </div>
-
-      <div class="download-card">
-        <h3>📝 Site Changelog</h3>
-        <p>Stay up to date with what's new, improved, or added.</p>
-        <a href="changelog.html" class="btn">Read Updates</a>
-      </div>
-    </section>
-
-    <div class="feedback-btn" title="Send feedback">💬 Feedback</div>
-  <!-- === End Main Content === -->
-</main>
-
-  <!-- === Footer === -->
-<footer>
-    <p>&copy; 2025 LSPDFR Ultimate Helper. Built by the community, for the community.</p>
+  <footer>
+    <p>&copy; 2025 LSPDFR Helper | Not affiliated with Rockstar Games</p>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script>
+    const searchInput = document.getElementById('searchInput');
+
+    searchInput.addEventListener('input', () => {
+      const term = searchInput.value.toLowerCase();
+      const content = document.querySelector('main');
+      const paragraphs = content.querySelectorAll('p, li, h2, h3');
+
+      let firstMatch = null;
+
+      paragraphs.forEach(p => {
+        p.style.backgroundColor = '';
+        if (term && p.textContent.toLowerCase().includes(term)) {
+          p.style.backgroundColor = '#ffff99';
+          if (!firstMatch) firstMatch = p;
+        }
+      });
+
+      if (firstMatch) {
+        firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
 </body>
 </html>

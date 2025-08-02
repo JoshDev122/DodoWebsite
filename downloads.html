@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Changelog | LSPDFR Helper</title>
+  <title>Downloads | LSPDFR Helper</title>
   <link rel="stylesheet" href="style.css"/>
   <style>
     #searchInput {
@@ -16,11 +16,25 @@
       border-radius: 6px;
     }
 
-    .log-entry {
+    .download-list {
+      padding-left: 0;
+    }
+
+    .download-list li {
+      margin: 15px 0;
       background: #f9f9f9;
-      margin-bottom: 20px;
       padding: 15px;
-      border-left: 4px solid #007bff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    .download-list a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .download-list a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -39,32 +53,46 @@
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="changelog.html">Changelog</a></li>
         <li><a href="contact.html">Contact</a></li>
-
       </ul>
     </nav>
     <input type="text" id="searchInput" placeholder="Search this page..." />
   </header>
 
   <main>
-    <h2>Changelog</h2>
-    
-    <div class="log-entry">
-      <h3>📅 August 2, 2025</h3>
-      <ul>
-        <li>✅ Added changelog page</li>
-        <li>✅ Added downloads page</li>
-        <li>✅ Integrated working search bar</li>
-        <li>✅ Fixed scroll behavior in search</li>
-      </ul>
-    </div>
-
-    <div class="log-entry">
-      <h3>📅 August 1, 2025</h3>
-      <ul>
-        <li>🚀 Initial release of LSPDFR Helper site</li>
-        <li>🧱 Setup basic page structure (HTML + CSS)</li>
-      </ul>
-    </div>
+    <h2>Downloads</h2>
+    <p>Below are links to important downloads for LSPDFR and its most useful tools.</p>
+    <ul class="download-list">
+      <li>
+        <strong>LSPDFR Installer:</strong><br>
+        <a href="https://www.lcpdfr.com/downloads/gta5mods/g17media/7792-lspd-first-response/" target="_blank">
+          Download from LCPDFR.com
+        </a>
+      </li>
+      <li>
+        <strong>RagePluginHook:</strong><br>
+        <a href="https://ragepluginhook.net/Downloads.aspx" target="_blank">
+          Download latest version
+        </a>
+      </li>
+      <li>
+        <strong>OpenIV Tool:</strong><br>
+        <a href="https://openiv.com/" target="_blank">
+          Download OpenIV
+        </a>
+      </li>
+      <li>
+        <strong>GameConfig.xml (for modding):</strong><br>
+        <a href="https://www.gta5-mods.com/misc/gta-5-gameconfig-300-cars" target="_blank">
+          Get modded gameconfig
+        </a>
+      </li>
+      <li>
+        <strong>ScriptHookV (Required for many mods):</strong><br>
+        <a href="https://www.gta5-mods.com/tools/script-hook-v" target="_blank">
+          Download ScriptHookV
+        </a>
+      </li>
+    </ul>
   </main>
 
   <footer>
