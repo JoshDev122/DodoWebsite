@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LSPDFR Quickstart | LSPDFR Helper</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    #searchInput {
+      margin: 10px auto;
+      display: block;
+      padding: 8px;
+      font-size: 16px;
+      width: 60%;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section h3 {
+      color: #007bff;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .tip {
+      background: #e9f7ef;
+      border-left: 4px solid #28a745;
+      padding: 10px;
+      margin-bottom: 15px;
+    }
+
+    .warning {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 10px;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>LSPDFR Helper</h1>
+    
+<nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="beginners.html">Quickstart</a></li>
+    <li><a href="setup.html">Setup Guide</a></li>
+    <li><a href="mods.html">Essential Mods</a></li>
+    <li><a href="downloads.html">Downloads</a></li>
+    <li><a href="issues.html">Common Issues</a></li>
+    <li><a href="fixes.html">Fixes</a></li>
+    <li><a href="fix-my-game.html">Fix My Game</a></li>
+    <li><a href="mod-manager.html">Mod Manager</a></li>
+    <li><a href="performance.html">Performance</a></li>
+    <li><a href="clean-install.html">Clean Install</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="changelog.html">Changelog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="log-analyzer.html">log analyzer</a></li>
+  </ul>
+</nav>
+
+    <input type="text" id="searchInput" placeholder="Search this page..." />
+  </header>
+
+  <main>
+    <h2>🚓 LSPDFR Quickstart Guide</h2>
+    <p>Just starting out? This guide walks you through the very basics of LSPDFR so you can start patrolling fast.</p>
+
+    <div class="section">
+      <h3>1. What is LSPDFR?</h3>
+      <p><strong>LSPDFR</strong> turns Grand Theft Auto V into a police simulator. Instead of playing as a criminal, you take on the role of a law enforcement officer, responding to crimes and conducting traffic stops.</p>
+    </div>
+
+    <div class="section">
+      <h3>2. What You Need</h3>
+      <ul>
+        <li>✅ A copy of GTA V (Steam or Epic Games, not cracked)</li>
+        <li>✅ RagePluginHook</li>
+        <li>✅ The LSPDFR mod itself</li>
+        <li>✅ Optional plugins (StopThePed, CompuLite, etc.)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>3. First-Time Setup</h3>
+      <ul>
+        <li>Install GTA V and launch it once</li>
+        <li>Download RagePluginHook and LSPDFR</li>
+        <li>Install them into your GTA V directory</li>
+        <li>Run the game using RagePluginHook</li>
+        <li>Complete the LSPDFR setup wizard in-game</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>4. Basic Controls</h3>
+      <ul>
+        <li><strong>E</strong> – Interact</li>
+        <li><strong>Shift</strong> – Radio / request backup</li>
+        <li><strong>F7</strong> – Open plugin settings (StopThePed, etc.)</li>
+        <li><strong>F4</strong> – Open RagePluginHook console</li>
+        <li><strong>Tab</strong> – Use weapon wheel like normal GTA</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>5. What NOT to Do</h3>
+      <div class="warning">
+        ❌ Never go online with LSPDFR installed. You risk a Rockstar Games ban.
+      </div>
+      <ul>
+        <li>Don’t run GTA Online with mods or plugins</li>
+        <li>Don’t overload your game with too many callouts at once</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>6. Next Steps</h3>
+      <div class="tip">
+        Once you're comfortable, check out our <a href="mods.html">Essential Mods</a> page for realism and functionality.
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 LSPDFR Helper</p>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', () => {
+      const term = searchInput.value.toLowerCase();
+      const content = document.querySelector('main');
+      const elements = content.querySelectorAll('p, li, h2, h3');
+      let firstMatch = null;
+      elements.forEach(el => {
+        el.style.backgroundColor = '';
+        if (term && el.textContent.toLowerCase().includes(term)) {
+          el.style.backgroundColor = '#ffff99';
+          if (!firstMatch) firstMatch = el;
+        }
+      });
+      if (firstMatch) {
+        firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
+</body>
+</html>

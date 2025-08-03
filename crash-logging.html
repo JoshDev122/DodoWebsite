@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Crash Logging & Troubleshooting | LSPDFR Helper</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    #searchInput {
+      margin: 10px auto;
+      display: block;
+      padding: 8px;
+      font-size: 16px;
+      width: 60%;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section h3 {
+      color: #007bff;
+    }
+
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 6px;
+      font-family: monospace;
+      border-radius: 4px;
+    }
+
+    .tip {
+      background: #e9f7ef;
+      border-left: 4px solid #28a745;
+      padding: 10px;
+      margin-bottom: 15px;
+    }
+
+    .warning {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 10px;
+      margin-bottom: 15px;
+    }
+
+    .error {
+      background: #f8d7da;
+      border-left: 4px solid #dc3545;
+      padding: 10px;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>LSPDFR Helper</h1>
+    
+<nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li>
+      <a href="#">Setup</a>
+      <ul>
+        <li><a href="beginners.html">Quickstart</a></li>
+        <li><a href="setup.html">Setup Guide</a></li>
+        <li><a href="clean-install.html">Clean Install</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">Fixes</a>
+      <ul>
+        <li><a href="fix-my-game.html">Fix My Game</a></li>
+        <li><a href="crash-logging.html">Crash Logging</a></li>
+        <li><a href="issues.html">Common Issues</a></li>
+        <li><a href="fixes.html">Fixes</a></li>
+      </ul>
+    </li>
+    <li><a href="mod-manager.html">Mod Manager</a></li>
+    <li><a href="downloads.html">Downloads</a></li>
+    <li><a href="performance.html">Performance</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="changelog.html">Changelog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="log-analyzer.html">log analyzer</a></li>
+  </ul>
+</nav>
+
+    <input type="text" id="searchInput" placeholder="Search this page..." />
+  </header>
+
+  <main>
+    <h2>🧠 Crash Logging & Troubleshooting</h2>
+    <p>This page helps you understand why your LSPDFR or GTA V installation is crashing — and how to read crash logs, find plugin errors, and fix common problems.</p>
+
+    <div class="section">
+      <h3>1. 📁 Where to Find Logs</h3>
+      <ul>
+        <li><code>Grand Theft Auto V/RagePluginHook.log</code> – main plugin log</li>
+        <li><code>Grand Theft Auto V/LSPDFR/crashes/</code> – plugin crash dumps</li>
+        <li><code>Documents/Rockstar Games/GTA V/</code> – general logs and save info</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>2. 🔍 Reading <code>RagePluginHook.log</code></h3>
+      <div class="tip">
+        Open with Notepad++ or VS Code — it's often 1000+ lines.
+      </div>
+      <ul>
+        <li>Use Ctrl+F to search for <code>[ERROR]</code> or <code>[FATAL]</code></li>
+        <li>Look for the last plugin loaded before crash</li>
+        <li>Scan timestamps for what happened in the last 3 seconds before crash</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>3. 🧱 Common Crash Patterns</h3>
+      <div class="error">
+        <strong>Problem:</strong> Game crashes before loading into the world.<br>
+        <strong>Log says:</strong> Failed to load plugin or System.Reflection.TargetInvocationException
+      </div>
+      <ul>
+        <li><strong>Fix:</strong> Check if plugin DLL matches your RPH version</li>
+        <li>Disable the plugin in RagePluginHook settings and retry</li>
+      </ul>
+
+      <div class="error">
+        <strong>Problem:</strong> Game crashes instantly with no log entries.
+      </div>
+      <ul>
+        <li><strong>Fix:</strong> Could be a corrupted <code>GameConfig.xml</code> or .asi mod</li>
+        <li>Use a clean install to isolate the issue</li>
+      </ul>
+
+      <div class="error">
+        <strong>Problem:</strong> ERR_FIL_PACK_1 / ERR_MEM_EMBEDDEDALLOC_ALLOC errors
+      </div>
+      <ul>
+        <li><strong>Fix:</strong> Install HeapAdjuster and Packfile Limit Adjuster</li>
+        <li>Make sure you're not exceeding 8+ large mods at once</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>4. 🔌 Plugin Crashes and Conflicts</h3>
+      <ul>
+        <li>If you're using custom callouts, disable them first</li>
+        <li>Test each plugin by loading only one at a time</li>
+        <li>Check plugin dependencies: some need <code>ScriptHookVDotNet</code> or other tools</li>
+      </ul>
+      <div class="tip">Always run RagePluginHook as administrator.</div>
+    </div>
+
+    <div class="section">
+      <h3>5. 🧠 Understanding Exception Codes</h3>
+      <ul>
+        <li><code>0xc0000005</code> – Access violation: plugin tried to read/write invalid memory</li>
+        <li><code>0xC0000374</code> – Heap corruption: often from mod conflicts</li>
+        <li><code>System.IO.FileNotFoundException</code> – Plugin can’t find required file</li>
+        <li><code>InvalidOperationException</code> – Plugin calling something out of sync</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>6. 🧪 How to Isolate the Crash</h3>
+      <ol>
+        <li>Backup your game folder</li>
+        <li>Remove all plugins from <code>Plugins/LSPDFR</code></li>
+        <li>Reintroduce one plugin at a time</li>
+        <li>After each re-addition, launch and test</li>
+        <li>As soon as it crashes again, you found the cause</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <h3>7. 🛠 Advanced Tools</h3>
+      <ul>
+        <li><strong>Visual Studio Debugger:</strong> Attach to RAGE to capture plugin stack trace</li>
+        <li><strong>CrashDumps:</strong> Some LSPDFR crashes produce `.dmp` files (use WinDbg to read)</li>
+        <li><strong>LogViewers:</strong> Use a plugin viewer to parse logs faster</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>8. 🤔 Still Crashing?</h3>
+      <ul>
+        <li>Post your <code>RagePluginHook.log</code> to forums or Discord</li>
+        <li>Always mention your RPH version and GTA build number</li>
+        <li>State your installed plugins, and any recent changes</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 LSPDFR Helper</p>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', () => {
+      const term = searchInput.value.toLowerCase();
+      const content = document.querySelector('main');
+      const elements = content.querySelectorAll('p, li, h2, h3, code');
+      let firstMatch = null;
+      elements.forEach(el => {
+        el.style.backgroundColor = '';
+        if (term && el.textContent.toLowerCase().includes(term)) {
+          el.style.backgroundColor = '#ffff99';
+          if (!firstMatch) firstMatch = el;
+        }
+      });
+      if (firstMatch) {
+        firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
+</body>
+</html>
