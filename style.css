@@ -84,3 +84,64 @@ footer {
   border: 1px solid #ccc;
   border-radius: 6px;
 }
+
+
+/* Dropdown navigation fix */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+nav ul li {
+  position: relative;
+  margin: 0 10px;
+}
+
+nav ul li a {
+  display: block;
+  padding: 12px 18px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: #333;
+  border-radius: 6px;
+}
+
+/* Sub-menu styling */
+nav ul li ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #222;
+  display: none;
+  flex-direction: column;
+  min-width: 180px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li:hover ul {
+  display: flex;
+}
+
+nav ul li ul li {
+  width: 100%;
+  margin: 0;
+}
+
+nav ul li ul li a {
+  padding: 10px 16px;
+  font-size: 14px;
+}
